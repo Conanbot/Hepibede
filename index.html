@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Birthday Cake</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #fbb6ce; /* pink background */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #6b4c43;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    user-select: none;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #222222;
+  }
+
+  /* Cake container */
+  .cake-container {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    background: #c29282; /* cake base color */
+    border-radius: 12px;
+    box-shadow:
+      inset 0 10px 15px #a76c61,
+      0 4px 8px rgb(0 0 0 / 0.1);
+  }
+
+  /* Frosting */
+  .frosting {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #fff5f0;
+    border-radius: 12px 12px 6px 6px;
+    box-shadow:
+      inset 0 -8px 8px #eadbd7;
+  }
+
+  /* Cake layers lines */
+  .layer-line {
+    position: absolute;
+    left: 10px;
+    width: 180px;
+    height: 6px;
+    background: #b2796d;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px #8a574d;
+  }
+  .layer1 { top: 50px; }
+  .layer2 { top: 75px; }
+  .layer3 { top: 100px; }
+
+  /* Plate */
+  .plate {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 230px;
+    height: 15px;
+    background: #f8ebe7;
+    border-radius: 50% / 100%;
+    box-shadow: inset 0 -3px 6px #cdbdb8;
+  }
+
+  /* Candle */
+  .candle {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 12px;
+    height: 40px;
+    background: repeating-linear-gradient(
+      45deg,
+      #ffe7e7,
+      #ffe7e7 6px,
+      #f88a8a 6px,
+      #f88a8a 12px
+    );
+    border-radius: 3px;
+    transform: translateX(-50%);
+    box-shadow: 0 0 3px 0 rgb(255 0 0 / 0.4);
+  }
+
+  /* Candle wick */
+  .wick {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 8px;
+    background: #663300;
+    transform: translateX(-50%);
+    border-radius: 1px;
+  }
+
+  /* Flame animation */
+  @keyframes flicker {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0) scale(1);
+      opacity: 1;
+      filter: drop-shadow(0 0 5px #FFD165);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-3px) scale(1.1);
+      opacity: 0.7;
+      filter: drop-shadow(0 0 10px #FFAD33);
+    }
+  }
+
+  .flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 12px;
+    height: 20px;
+    background: radial-gradient(
+      ellipse at center,
+      #ffd165 0%,
+      #ff8233 70%,
+      transparent 90%
+    );
+    border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+    filter: drop-shadow(0 0 5px #FFD165);
+    transform-origin: bottom center;
+    animation: flicker 1.2s infinite ease-in-out;
+    transform: translateX(-50%);
+  }
+
+  /* Birthday text */
+  .birthday-text {
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #a67672;
+    text-align: center;
+  }
+  .birthday-text .recipient{
+    margin-top: 4px;
+    font-style: normal;
+    font-weight: 500;
+    color: #8a6056;
+  }
+</style>
+</head>
+<body>
+  <h1>Birthday Cake</h1>
+
+  <div class="cake-container" role="img" aria-label=" birthday cake with candle and frosting">
+    <div class="frosting"></div>
+    <div class="layer-line layer1"></div>
+    <div class="layer-line layer2"></div>
+    <div class="layer-line layer3"></div>
+    <div class="plate"></div>
+
+    <div class="candle" aria-label="Birthday candle">
+      <div class="wick"></div>
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <div class="birthday-text">
+    happy birthday!<br />
+    <span class="recipient">Samantha</span>
+  </div>
+</body>
+</html>
